@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Minutes of the meeting </title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <!-- magnific popup css -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- responsive -->
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="css/style-login.css" />
+
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-auth.js"></script>
+
+
+</head>
+
+<style type="text/css">
+    #submit,#show,#show-detail {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+</style>
+
+<body>
+
+        
+        <!-- ============Start Navigation ===== -->
+        <nav class="navbar navbar-area navbar-expand-lg navbar-light bg-light">
+            <div class="container nav-container">
+            <div class="navbar-header">
+                <a class="navbar-brand logo" href="index.html">
+                    <img src="assets/img/logoLarge.png"   alt="logo image">
+                </a>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+                    <ul class="navbar-nav">
+
+
+                         <li class="nav-item">
+                            <a class="nav-link active" href="index.html">Directors Login<span class="sr-only">(current)</span></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="attendance-checking.html">Attendance checking<span class="sr-only">(current)</span></a>
+                        </li>
+                        
+        
+                    </ul>
+                </div>
+            </div>
+        </nav> 
+        <!-- ============End Navigation ===== -->
+
+<!-- Breadcumb area start  -->
+<section class="breadcumb-area breadcrumb-bg breadcrumb-doc ">
+    <div class="container">
+        <div class="row ">
+            <div class="col-lg-12">
+                <div class="breadcumb-inner">
+                    <h2 class="title">Team Attendance</h2>
+                    <ul class="page-list">
+                        <li><a>Home</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcumb area end  -->
+
+
+
+
+
+                
+
+<section class="activity-area" id="user_div">
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-title">
+                        <h2 class="title">Minutes of the Meeting</h2>
+                    </div>
+
+                </div>
+            </div>
+
+            <p>Double Click the <span style="color:red;">Show Button</span> to see member attendance</p>
+
+
+    
+            <div class="row user_div">
+
+
+                <!--------------------------------------------------------------- date,time,year starts here ----------------------------------------- !-->
+                    <table class="table" id="main-data">
+
+                            <thead class="thead-dark">
+                              <tr>
+                                <th scope="col">Date, Year And Time</th>
+                                
+                                <th scope="col">Time</th>
+                                
+                              </tr>
+                            </thead>
+
+                            <tbody>
+
+
+                              <tr>
+                                <th scope="row"><input type="date" name="date" id="date" placeholder="date"></th>
+                                
+                                <td><input type="time" name="time" id="time" placeholder="2:00"></td>
+                                
+                              </tr>
+
+                            </tbody>
+
+                    </table>
+
+
+                    <!--------------------------------------------------------------- IT STARTS HERE ----------------------------------------- !-->
+                    <table id="table-check-it" class="table">
+
+                            <thead class="thead-dark" id="show-it-thead">
+                              <tr>
+                                <th> Information Technology</th>
+                                <th></th>
+                                <th></th>
+                              </tr>
+                            </thead>
+
+
+                    </table>
+
+
+                     <!--------------------------------------------------------------- hr starts here  ----------------------------------------- !-->
+                    <table id="table-check-hr" class="table">
+
+                            <thead class="thead-dark" id="show-hr-thead">
+                              <tr>
+                                <th> Human Resources</th>
+                                <th></th>
+                                <th></th>
+                              </tr>
+                            </thead>
+
+
+                    </table>
+
+                     <!--------------------------------------------------------------- pr starts here ----------------------------------------- !-->
+                    <table id="table-check-pr" class="table">
+
+                            <thead class="thead-dark" id="show-pr-thead">
+                              <tr>
+                                <th> Promotion</th>
+                                <th></th>
+                                <th></th>
+                              </tr>
+                            </thead>
+
+
+                    </table>
+
+                     <!--------------------------------------------------------------- marketing starts here ----------------------------------------- !-->
+                    <table id="table-check-mr" class="table">
+
+                            <thead class="thead-dark" id="show-mr-thead">
+                              <tr>
+                                <th> Marketing</th>
+                                <th></th>
+                                <th></th>
+                              </tr>
+                            </thead>
+
+
+                    </table>
+
+                     <!---------------------------------------------------------------documentation starts here----------------------------------------- !-->
+                    <table id="table-check-do" class="table">
+
+                            <thead class="thead-dark" id="show-do-thead">
+                              <tr>
+                                <th> Documentation</th>
+                                <th></th>
+                                <th></th>
+                              </tr>
+                            </thead>
+
+
+                    </table>
+
+                     <!--------------------------------------------------------------- logistics starts here ----------------------------------------- !-->
+                    <table id="table-check-lo" class="table">
+
+                            <thead class="thead-dark" id="show-lo-thead">
+                              <tr>
+                                <th> Logistics</th>
+                                <th></th>
+                                <th></th>
+                              </tr>
+                            </thead>
+
+
+                    </table>
+
+                     <!--------------------------------------------------------------- graphics starts here ----------------------------------------- !-->
+                    <table id="table-check-gr" class="table">
+
+                            <thead class="thead-dark" id="show-gr-thead">
+                              <tr>
+                                <th> Graphics</th>
+                                <th></th>
+                                <th></th>
+                              </tr>
+                            </thead>
+
+
+                    </table>
+
+                     <!--------------------------------------------------------------- creativity starts here ----------------------------------------- !-->
+                    <table id="table-check-ct" class="table">
+
+                            <thead class="thead-dark" id="show-ct-thead">
+                              <tr>
+                                <th> Creativity</th>
+                                <th></th>
+                                <th></th>
+                              </tr>
+                            </thead>
+
+
+                    </table>
+
+                     <!--------------------------------------------------------------- event management starts here ----------------------------------------- !-->
+                    <table id="table-check-em" class="table">
+
+                            <thead class="thead-dark" id="show-em-thead">
+                              <tr>
+                                <th> Event Management</th>
+                                <th></th>
+                                <th></th>
+                              </tr>
+                            </thead>
+
+
+                    </table>
+
+                                        
+                          
+                        
+
+            </div>
+
+            <div class="buttons">
+                <button class="contact100-form-btn" type="submit" id="show-detail">
+                       Show
+                    </button>
+
+                    <button class="contact100-form-btn" type="submit" id="submit">
+                        Submit
+                    </button>
+
+                    <button class="contact100-form-btn" type="submit" id="show" onclick="logout()" style="margin-top: 20px;">Logout</button>
+
+             
+                    
+            </div>
+
+            
+
+
+        </div>
+
+       
+               
+
+
+    </section>
+    <!-- Activity  end -->
+
+
+
+    
+<!-- footer area start -->
+<footer class="footer-area footer-bg">
+		
+    <div class="copyright-area"><!--copyright area start-->
+        <div class="container">
+            <div class="row">
+            <div class="col-lg-12 text-center">
+                &#169; Copyright <span class="base-color">2019</span> all rights Reserved <span class="base-color">|</span>
+                <!--
+                 Designed by: <a href="https://www.facebook.com/ghulamahmed8" class="crd"><b> Ghulam Ahmed Bin Saeed </b> </a>  & <a href="https://www.facebook.com/hamza908" class="crd"> <b> Muhammad Hamza </b> </a> 
+                 !-->
+                 <span class="base-color"></span> Designed And Developed By <a href="heirarchy-IT.html"  class="crd"> <b> IEEE IT Team </b> </a>
+                </div>
+            </div><!-- /.row-->
+        </div> <!-- /.container -->
+    </div> <!--copyright area end-->
+    
+</footer>
+<!-- footer area end -->
+
+
+<!-- back to top start -->
+<div class="back-to-top" >
+    <!-- back to top start -->
+    <i class="fas fa-rocket"></i>
+</div>
+<!-- back to top end -->
+
+<!-- preloader area start -->
+<div class="preloader" id="preloader">
+    <div class="loader loader-1">
+        <div class="loader-outter"></div>
+        <div class="loader-inner"></div>
+    </div>
+</div>
+<!-- preloader area end -->
+
+
+    <!-- jquery -->
+    <script src="assets/js/jquery.js"></script>
+    <!-- popper -->
+    <script src="assets/js/popper.min.js"></script>
+	<!-- bootstrap -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- owl carousel -->
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <!-- wow js-->
+    <script src="assets/js/wow.min.js"></script>
+    <!-- jquery imagloaded js-->
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <!-- filterizr js-->
+    <script src="assets/js/jquery.filterizr.min.js"></script>
+    <!-- magnific popup js -->
+    <script src="assets/js/jquery.magnific-popup.js"></script>
+    <!-- main -->
+    <script src="assets/js/main.js"></script>
+
+    <script src="js/attendance-checking.js"></script>
+</body>
+
+
+</html>
