@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Minutes of the meeting </title>
+    <title> Attendance Checking</title>
     <!-- favicon -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <!-- bootstrap -->
@@ -24,7 +24,10 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- responsive -->
     <link rel="stylesheet" href="assets/css/responsive.css">
-    <link rel="stylesheet" href="css/style-login.css" />
+    <!-- Nav bar styling !-->
+    <link rel="stylesheet" href="assets/css/form_style.css" type="text/css">
+    
+    
 
     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-database.js"></script>
@@ -44,16 +47,92 @@
   width: 100%;
 }
 
+.tables button
+{
+    margin-bottom: 10px;
+    background-color:#50a142 !important;
+}
+
 button:hover {
   opacity: 0.8;
+
 }
+
+tr:hover
+{
+    cursor:pointer;
+}
+
+.span_design
+{
+    color: #50a142 !important;
+    padding: 0px 0px 0px 0px;
+    
+    display: none;
+}
+
+#table-check tbody>tr>:nth-child(2),#imp-data tbody>tr>:nth-child(2){
+    color:#1EBBD7;
+ 
+ font-family: "Poppins";
+ text-align:center;
+}
+
+#imp-data,#table-check
+{
+    border:solid #DEE2E6;
+    border-width: 1px;
+
+}
+
+.collapse a
+{
+    text-decoration:none;
+    color: #868892;
+}
+
+.collapse a:hover
+{
+    text-decoration:none;
+    color: #868892;
+}
+
+.collapse a:visited
+{
+    text-decoration:none;
+    color: #868892;
+}
+
+.collapse a:link
+{
+    text-decoration:none;
+    color: #868892;
+}
+
+.collapse a:active
+{
+    text-decoration:none;
+    color:#868892;
+}
+
+
+
+
+
 
 </style>
 
 <body>
 
+        <div class="topnav">
+    <div class="login-container">
         
-        <!-- ============Start Navigation ===== -->
+        <button type="submit" id="signout">Sign Out</button>
+         <button type="submit" id="home">Home</button>
+    
+    </div>
+</div>
+        <!-- ============Start Navigation ===== 
         <nav class="navbar navbar-area navbar-expand-lg navbar-light bg-light">
             <div class="container nav-container">
             <div class="navbar-header">
@@ -77,7 +156,7 @@ button:hover {
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="attendance-checking.html">Attendance checking<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="show-member.html">Attendance checking<span class="sr-only">(current)</span></a>
                         </li>
                         
         
@@ -85,9 +164,10 @@ button:hover {
                 </div>
             </div>
         </nav> 
+        -->
         <!-- ============End Navigation ===== -->
 
-<!-- Breadcumb area start  -->
+<!-- Breadcumb area start  
 <section class="breadcumb-area breadcrumb-bg breadcrumb-doc ">
     <div class="container">
         <div class="row ">
@@ -103,7 +183,7 @@ button:hover {
         </div>
     </div>
 </section>
-<!-- Breadcumb area end  -->
+-->
 
 
 
@@ -117,20 +197,20 @@ button:hover {
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="section-title">
-                        <h2 class="title">Minutes of the Meeting</h2>
+                        <h2 class="title">Attendance Checking</h2>
                     </div>
 
                 </div>
             </div>
 
-            <p>Double Click the <span style="color:red;">Show Button</span> to see member attendance</p>
+            
 
 
     
             <div class="row user_div">
 
 
-                <!--------------------------------------------------------------- date,time,year starts here ----------------------------------------- !-->
+                <!--------------------------------------------------------------- date,time,year starts here ----------------------------------------- 
                     <table class="table" id="main-data">
 
                             <thead class="thead-dark">
@@ -157,154 +237,184 @@ button:hover {
                     </table>
 
 
-                    <!--------------------------------------------------------------- IT STARTS HERE ----------------------------------------- !-->
-                    <table id="table-check-it" class="table">
+                    !-->
 
-                            <thead class="thead-dark" id="show-it-thead">
-                              <tr>
-                                <th> Information Technology</th>
-                                <th></th>
-                                <th></th>
-                              </tr>
-                            </thead>
+                    
+
+                    <div class="col-lg-8 tables">
 
 
-                    </table>
+                                        <!--------------------------------------------------------------- IT STARTS HERE ----------------------------------------- !-->
 
+                                        <button  data-toggle="collapse" data-target="#collapse1" class="btn btn-primary btn-block" id="it-button">Information Technology</button>
 
-                     <!--------------------------------------------------------------- hr starts here  ----------------------------------------- !-->
-                    <table id="table-check-hr" class="table">
+                                        <div id="collapse1" class="collapse">
 
-                            <thead class="thead-dark" id="show-hr-thead">
-                              <tr>
-                                <th> Human Resources</th>
-                                <th></th>
-                                <th></th>
-                              </tr>
-                            </thead>
-
-
-                    </table>
-
-                     <!--------------------------------------------------------------- pr starts here ----------------------------------------- !-->
-                    <table id="table-check-pr" class="table">
-
-                            <thead class="thead-dark" id="show-pr-thead">
-                              <tr>
-                                <th> Promotion</th>
-                                <th></th>
-                                <th></th>
-                              </tr>
-                            </thead>
-
-
-                    </table>
-
-                     <!--------------------------------------------------------------- marketing starts here ----------------------------------------- !-->
-                    <table id="table-check-mr" class="table">
-
-                            <thead class="thead-dark" id="show-mr-thead">
-                              <tr>
-                                <th> Marketing</th>
-                                <th></th>
-                                <th></th>
-                              </tr>
-                            </thead>
-
-
-                    </table>
-
-                     <!---------------------------------------------------------------documentation starts here----------------------------------------- !-->
-                    <table id="table-check-do" class="table">
-
-                            <thead class="thead-dark" id="show-do-thead">
-                              <tr>
-                                <th> Documentation</th>
-                                <th></th>
-                                <th></th>
-                              </tr>
-                            </thead>
-
-
-                    </table>
-
-                     <!--------------------------------------------------------------- logistics starts here ----------------------------------------- !-->
-                    <table id="table-check-lo" class="table">
-
-                            <thead class="thead-dark" id="show-lo-thead">
-                              <tr>
-                                <th> Logistics</th>
-                                <th></th>
-                                <th></th>
-                              </tr>
-                            </thead>
-
-
-                    </table>
-
-                     <!--------------------------------------------------------------- graphics starts here ----------------------------------------- !-->
-                    <table id="table-check-gr" class="table">
-
-                            <thead class="thead-dark" id="show-gr-thead">
-                              <tr>
-                                <th> Graphics</th>
-                                <th></th>
-                                <th></th>
-                              </tr>
-                            </thead>
-
-
-                    </table>
-
-                     <!--------------------------------------------------------------- creativity starts here ----------------------------------------- !-->
-                    <table id="table-check-ct" class="table">
-
-                            <thead class="thead-dark" id="show-ct-thead">
-                              <tr>
-                                <th> Creativity</th>
-                                <th></th>
-                                <th></th>
-                              </tr>
-                            </thead>
-
-
-                    </table>
-
-                     <!--------------------------------------------------------------- event management starts here ----------------------------------------- !-->
-                    <table id="table-check-em" class="table">
-
-                            <thead class="thead-dark" id="show-em-thead">
-                              <tr>
-                                <th> Event Management</th>
-                                <th></th>
-                                <th></th>
-                              </tr>
-                            </thead>
-
-
-                    </table>
+                                         <a href="#start-check"><table id="table-check-it" class="table">
 
                                         
+                                        </table></a>
+
+
+                                     </div>
+
+
+                                     <!--------------------------------------------------------------- hr starts here  ----------------------------------------- !-->
+
+
+
+                                     <button  data-toggle="collapse" data-target="#collapse2" class="btn btn-primary btn-block" id="hr-button">Human Resources</button>
+
+                                     <div id="collapse2" class="collapse">
+
+                                         <a href="#start-check"><table id="table-check-hr" class="table" >
+
+                                            
+                                         </table></a>
+
+                                     </div>
+
+
+                                        
+                                         
+                                     
+                                    
+
+                                     <!--------------------------------------------------------------- pr starts here ----------------------------------------- !-->
+
+                                     <button  data-toggle="collapse" data-target="#collapse3" class="btn btn-primary btn-block" id="pr-button">Promotions</button>
+
+                                     <div id="collapse3" class="collapse">
+
+                                         <a href="#start-check"><table id="table-check-pr" class="table" >
+
+                                            
+                                         </table></a>
+
+                                     </div>
+
+                                    
+
+                                     <!--------------------------------------------------------------- marketing starts here ----------------------------------------- !-->
+                                    <button  data-toggle="collapse" data-target="#collapse4" class="btn btn-primary btn-block" id="mr-button">Marketing</button>
+
+                                     <div id="collapse4" class="collapse">
+
+                                         <a href="#start-check"><table id="table-check-mr" class="table" >
+
+                                            
+                                         </table></a>
+
+                                     </div>
+
+                                     <!---------------------------------------------------------------documentation starts here----------------------------------------- !-->
+                                    <button  data-toggle="collapse" data-target="#collapse5" class="btn btn-primary btn-block" id="do-button">Documentation</button>
+
+                                     <div id="collapse5" class="collapse">
+
+                                         <a href="#start-check"><table id="table-check-do" class="table" >
+
+                                            
+                                         </table></a>
+
+                                     </div>
+
+                                     <!--------------------------------------------------------------- logistics starts here ----------------------------------------- !-->
+                                    <button  data-toggle="collapse" data-target="#collapse6" class="btn btn-primary btn-block" id="lo-button">Logistics</button>
+
+                                     <div id="collapse6" class="collapse">
+
+                                         <a href="#start-check"><table id="table-check-lo" class="table" >
+
+                                            
+                                         </table></a>
+
+                                     </div>
+
+                                     <!--------------------------------------------------------------- graphics starts here ----------------------------------------- !-->
+                                    <button  data-toggle="collapse" data-target="#collapse7" class="btn btn-primary btn-block" id="gr-button">Graphics</button>
+
+                                     <div id="collapse7" class="collapse">
+
+                                         <a href="#start-check"><table id="table-check-gr" class="table" >
+
+                                            
+                                         </table></a>
+
+                                     </div>
+
+                                     <!--------------------------------------------------------------- creativity starts here ----------------------------------------- !-->
+                                    <button  data-toggle="collapse" data-target="#collapse8" class="btn btn-primary btn-block" id="ct-button">Creativity</button>
+
+                                     <div id="collapse8" class="collapse">
+
+                                         <a href="#start-check"><table id="table-check-ct" class="table" >
+
+                                            
+                                         </table></a>
+
+                                     </div>
+
+                                     <!--------------------------------------------------------------- event management starts here ----------------------------------------- !-->
+                                    <button  data-toggle="collapse" data-target="#collapse9" class="btn btn-primary btn-block" id="em-button">Event Management</button>
+
+                                     <div id="collapse9" class="collapse">
+
+                                         <a href="#start-check"><table id="table-check-em" class="table" >
+
+                                            
+                                         </table></a>
+
+                                     </div>
+
+                                      
+                        
+                    </div>
+
+
+                    <div class="col-lg-4">
+                        <!--------------------------------------------------------------- CHECHING TABLE STARTS HERE ----------------------------------------- !-->
+
+                        <div style="width: 87%;margin-top: 30px;padding-left: 13px; " id="start-check">
+                            <span  class="span_design col-lg-2" style="float:left;font-weight: bold;">Date</span>
+                            <span  class="span_design col-lg-2" style="float: right;font-weight: bold;">Domain</span>
+                        </div>
+                        
+
+                        <table id="imp-data" class="table tab-design">
+
+                        
+
+                        </table>
+
+
+                        <div style="width: 87%;padding-left: 13px; ">
+                            
+                          <span  class="span_design col-lg-2" style="float:left;font-weight: bold;">Name</span>
+                            <span  class="span_design col-lg-2" style="float: right;font-weight: bold;">Status</span>
+
+                        </div>
+                            
+                        
+
+                    <table id="table-check" class="table table-striped">
+
+
+
+
+
+                    </table>
+
+                    </div>
+
+
+                      
                           
                         
 
             </div>
 
-            <div class="buttons">
-                <button class="contact100-form-btn" type="submit" id="show-detail">
-                       Show
-                    </button>
-
-                    <button class="contact100-form-btn" type="submit" id="submit">
-                        Submit
-                    </button>
-
-                    <button class="contact100-form-btn" type="submit" id="show" onclick="logout()" style="margin-top: 20px;">Logout</button>
-
-             
-                    
-            </div>
-
+            
             
 
 
@@ -320,64 +430,32 @@ button:hover {
 
 
     
-<!-- footer area start -->
-<footer class="footer-area footer-bg">
-		
-    <div class="copyright-area"><!--copyright area start-->
-        <div class="container">
-            <div class="row">
-            <div class="col-lg-12 text-center">
-                &#169; Copyright <span class="base-color">2019</span> all rights Reserved <span class="base-color">|</span>
-                <!--
-                 Designed by: <a href="https://www.facebook.com/ghulamahmed8" class="crd"><b> Ghulam Ahmed Bin Saeed </b> </a>  & <a href="https://www.facebook.com/hamza908" class="crd"> <b> Muhammad Hamza </b> </a> 
-                 !-->
-                 <span class="base-color"></span> Designed And Developed By <a href="heirarchy-IT.html"  class="crd"> <b> IEEE IT Team </b> </a>
-                </div>
-            </div><!-- /.row-->
-        </div> <!-- /.container -->
-    </div> <!--copyright area end-->
+
+
     
-</footer>
-<!-- footer area end -->
-
-
-<!-- back to top start -->
-<div class="back-to-top" >
-    <!-- back to top start -->
-    <i class="fas fa-rocket"></i>
-</div>
 <!-- back to top end -->
 
-<!-- preloader area start -->
+<!-- preloader area start 
 <div class="preloader" id="preloader">
     <div class="loader loader-1">
         <div class="loader-outter"></div>
         <div class="loader-inner"></div>
     </div>
 </div>
+-->
 <!-- preloader area end -->
 
 
     <!-- jquery -->
     <script src="assets/js/jquery.js"></script>
-    <!-- popper -->
-    <script src="assets/js/popper.min.js"></script>
+
 	<!-- bootstrap -->
     <script src="assets/js/bootstrap.min.js"></script>
-    <!-- owl carousel -->
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <!-- wow js-->
-    <script src="assets/js/wow.min.js"></script>
-    <!-- jquery imagloaded js-->
-    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
-    <!-- filterizr js-->
-    <script src="assets/js/jquery.filterizr.min.js"></script>
-    <!-- magnific popup js -->
-    <script src="assets/js/jquery.magnific-popup.js"></script>
-    <!-- main -->
-    <script src="assets/js/main.js"></script>
-
+    
+    
     <script src="js/attendance-checking.js"></script>
+    <script type="text/javascript" src="js/home.js"></script>
+
 </body>
 
 

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>IEEE Attendance Login</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+        <link rel="stylesheet" href="assets/css/form_style.css" type="text/css">
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-auth.js"></script>
+   
+
+</head>
+<style type="text/css">
+    *{
+        margin:0px;
+        padding: 0px;
+    }
+</style>
+
+<body>
+
+
+    <main class="page contact-page">
+        <section class="portfolio-block contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12"> 
+
+                       <form>
+                        
+                            <div class="heading">
+                                <img src="assets/logos/logos2.jpg" style="width: 45%;">  
+                                </br>
+                                <h2 style="margin-top: 20px;font-size:24px;color:#525252;"> IEEE Attendance Login </h2>
+                            </div>
+
+                            <div class="form-group"><label for="Email">Email</label>
+
+                                <input class="form-control item" type="email" name="uname" id="email_field" required>
+
+                            </div>
+
+                            <div class="form-group"><label for="Password">Password</label>
+
+                                <input class="form-control item" type="password" name="psw" id="password_field" required>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <button class="btn btn-primary btn-block btn-lg" type="submit" id="Login"> 
+                                    <span>Login</span>
+                                    
+                                      
+                                      <div class="spinner-border spinner-border-sm ml-auto" id="loading" role="status" aria-hidden="true" style="float: right;margin: auto;margin-top: 8px;display: none;"></div>
+                                    
+                                </button>
+
+                                
+                                
+                            </div>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- preloader area start 
+<div class="preloader" id="preloader">
+    <div class="loader loader-1">
+        <div class="loader-outter"></div>
+        <div class="loader-inner"></div>
+    </div>
+</div>
+-->
+<!-- preloader area end -->
+    </main>
+    <!-- jquery -->
+    <script src="assets/js/jquery.js"></script>
+    
+	
+    
+    
+    <script src="js/attendance.js"></script>
+
+</body>
+
+
+
+</html>
+
